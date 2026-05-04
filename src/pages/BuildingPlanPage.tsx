@@ -27,7 +27,7 @@ const TESTIMONIALS = [
   },
 ];
 
-const STAGE_DURATION_MS = 1500;
+const STAGE_DURATION_MS = 2500;
 
 const BuildingPlanPage = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const BuildingPlanPage = () => {
   // Sequentially advance progress bars
   useEffect(() => {
     if (activeStage >= STAGES.length) {
-      const t = setTimeout(() => navigate("/email"), 600);
+      const t = setTimeout(() => navigate("/email"), 1500);
       return () => clearTimeout(t);
     }
     const start = Date.now();
@@ -66,7 +66,7 @@ const BuildingPlanPage = () => {
   useEffect(() => {
     const t = setInterval(() => {
       setTestimonialIdx((i) => (i + 1) % TESTIMONIALS.length);
-    }, 2500);
+    }, 4000);
     return () => clearInterval(t);
   }, []);
 

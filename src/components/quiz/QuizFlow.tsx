@@ -31,7 +31,7 @@ interface QuizFlowProps {
 const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFlowProps) => {
   const isMobile = useIsMobile();
   const slideDistance = isMobile ? 8 : 16;
-  const slideDuration = isMobile ? 0.08 : 0.12;
+  const slideDuration = isMobile ? 0.35 : 0.45;
   const hoverScale = isMobile ? undefined : { scale: 1.02 };
   const hoverScaleSm = isMobile ? undefined : { scale: 1.01 };
   const hoverScaleLg = isMobile ? undefined : { scale: 1.05 };
@@ -88,7 +88,7 @@ const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFl
     });
   };
 
-  const advanceToNext = (delay = 100) => {
+  const advanceToNext = (delay = 350) => {
     setTimeout(() => {
       onComplete();
     }, delay);
@@ -97,7 +97,7 @@ const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFl
   const handleSelect = (value: string) => {
     onAnswer(question.id, value);
     fireAnswer(value);
-    advanceToNext(180);
+    advanceToNext(450);
   };
 
   const handleMultiToggle = (value: string) => {
@@ -106,7 +106,7 @@ const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFl
       setMultiSelected([value]);
       onAnswer(question.id, [value]);
       fireAnswer([value]);
-      advanceToNext(180);
+      advanceToNext(450);
       return;
     }
     setMultiSelected((prev) => {
@@ -162,13 +162,13 @@ const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFl
   const handleAgreeDisagree = (value: string) => {
     onAnswer(question.id, value);
     fireAnswer(value);
-    advanceToNext(120);
+    advanceToNext(350);
   };
 
   const handleScaleSelect = (value: number) => {
     onAnswer(question.id, value);
     fireAnswer(value);
-    advanceToNext(120);
+    advanceToNext(350);
   };
 
   // Count non-break questions for progress

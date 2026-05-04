@@ -252,7 +252,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
       {/* Header */}
       <div className="bg-gradient-hero py-10 md:py-14 px-6">
         <div className="container mx-auto max-w-3xl text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-foreground/20 text-primary-foreground text-xs font-body mb-4 backdrop-blur-sm">
               <Shield className="w-3.5 h-3.5" />
               VOTED #1 BEST DIET FOR 2026
@@ -272,7 +272,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10"
         >
           {planOrder.map((key) => {
@@ -335,7 +335,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="bg-card rounded-xl p-6 shadow-card border border-border mb-6"
         >
           <h3 className="text-lg font-display font-bold text-foreground mb-4 text-center">
@@ -357,7 +357,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="flex justify-center mb-10"
         >
           <img
@@ -372,7 +372,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="mb-10"
         >
           <FeaturedInBlock />
@@ -382,7 +382,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="bg-olive-muted rounded-xl p-6 border border-primary/10 mb-10 text-center"
         >
           <Leaf className="w-8 h-8 text-primary mx-auto mb-3" />
@@ -398,7 +398,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="mb-10"
         >
           <h3 className="text-lg font-display font-bold text-foreground mb-4 text-center">
@@ -437,7 +437,7 @@ const OfferPage = ({ planName, results, gender = "Female", userEmail }: OfferPag
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="bg-olive-muted rounded-xl p-6 border border-primary/10 mb-10 text-center"
         >
           <Shield className="w-10 h-10 text-primary mx-auto mb-3" />

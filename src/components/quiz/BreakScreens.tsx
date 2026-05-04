@@ -78,7 +78,7 @@ const BreakMillionWomen = ({ onContinue, answers }: Omit<BreakScreenProps, "brea
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto text-center"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">
@@ -153,7 +153,7 @@ const BreakWhatIsGlp1 = ({ onContinue, answers }: Omit<BreakScreenProps, "breakT
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="bg-card rounded-xl border border-border shadow-card p-6">
@@ -208,7 +208,7 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto text-center px-6"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
@@ -266,7 +266,7 @@ const BreakBeforeAfter = ({ onContinue, answers }: Omit<BreakScreenProps, "break
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto text-center"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
@@ -318,7 +318,7 @@ const BreakDesignedNaturally = ({ onContinue }: Omit<BreakScreenProps, "breakTyp
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="bg-card rounded-xl border border-border shadow-card p-6">
@@ -367,7 +367,7 @@ const BreakComparisonGraph = ({ onContinue }: Omit<BreakScreenProps, "breakType"
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="text-center mb-6">
@@ -531,7 +531,7 @@ const BreakBMI = ({ answers, onContinue }: Omit<BreakScreenProps, "breakType">) 
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto"
     >
       {/* HEADER */}
@@ -670,7 +670,7 @@ const BreakProgress = ({ answers, onContinue }: Omit<BreakScreenProps, "breakTyp
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="text-center mb-6">
@@ -758,7 +758,7 @@ const BreakTrustedStudy = ({ onContinue, answers }: Omit<BreakScreenProps, "brea
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.45 }}
       className="w-full max-w-lg mx-auto text-center px-6"
     >
       <img src={trustedWomen} alt="People who trust Mediterranean Diet" className="w-full max-w-md mx-auto mb-6 rounded-2xl" loading="lazy" decoding="async" />
