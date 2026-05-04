@@ -27,7 +27,7 @@ const TESTIMONIALS = [
   },
 ];
 
-const STAGE_DURATION_MS = 4000;
+const STAGE_DURATION_MS = 1500;
 
 const BuildingPlanPage = () => {
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ const BuildingPlanPage = () => {
   useEffect(() => {
     const t = setInterval(() => {
       setTestimonialIdx((i) => (i + 1) % TESTIMONIALS.length);
-    }, 3500);
+    }, 2500);
     return () => clearInterval(t);
   }, []);
 

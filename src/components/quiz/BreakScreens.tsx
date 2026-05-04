@@ -2,7 +2,7 @@ import React from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { ArrowRight, Heart, Leaf, Shield, Flame, Apple, TrendingDown, Sun, Brain, Activity, Users, Star, CheckCircle, Moon } from "lucide-react";
 
-const CountUp = ({ to, duration = 1.4, delay = 0, decimals = 0 }: { to: number; duration?: number; delay?: number; decimals?: number }) => {
+const CountUp = ({ to, duration = 0.7, delay = 0, decimals = 0 }: { to: number; duration?: number; delay?: number; decimals?: number }) => {
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (v) => v.toFixed(decimals));
   React.useEffect(() => {
@@ -172,7 +172,7 @@ const BreakWhatIsGlp1 = ({ onContinue, answers }: Omit<BreakScreenProps, "breakT
               key={benefit}
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.3 }}
+              transition={{ delay: i * 0.05, duration: 0.2 }}
               className="flex items-center gap-3"
             >
               <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
@@ -221,7 +221,7 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
             key={item.label}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+            transition={{ delay: 0.1 + i * 0.08, duration: 0.3 }}
             className="flex flex-col items-center gap-2"
           >
             <div className="w-14 h-14 rounded-full bg-muted/60 flex items-center justify-center text-2xl">
@@ -236,7 +236,7 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
         onClick={onContinue}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
+        transition={{ delay: 0.4 }}
         className="w-full py-4 rounded-xl bg-gradient-hero text-primary-foreground font-body font-semibold text-lg shadow-medium hover:shadow-glow transition-all"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
@@ -386,7 +386,7 @@ const BreakComparisonGraph = ({ onContinue }: Omit<BreakScreenProps, "breakType"
                 key={point.text}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.3 }}
+                transition={{ delay: 0.1 + i * 0.05, duration: 0.2 }}
                 className="flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-muted-foreground flex-shrink-0">
@@ -409,7 +409,7 @@ const BreakComparisonGraph = ({ onContinue }: Omit<BreakScreenProps, "breakType"
                 key={point.text}
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 + i * 0.1, duration: 0.3 }}
+                transition={{ delay: 0.2 + i * 0.05, duration: 0.2 }}
                 className="flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary flex-shrink-0">

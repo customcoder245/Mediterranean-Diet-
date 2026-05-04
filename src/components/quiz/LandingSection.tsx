@@ -28,7 +28,7 @@ const LandingSection = forwardRef<HTMLElement, LandingSectionProps>(({ onStart, 
             <motion.img
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               src={mdLogo}
               alt="The Mediterranean Diet"
               className="h-10 md:h-12 w-auto [filter:brightness(0)_saturate(100%)]"
@@ -46,7 +46,7 @@ const LandingSection = forwardRef<HTMLElement, LandingSectionProps>(({ onStart, 
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative"
             >
               <img
@@ -66,7 +66,7 @@ const LandingSection = forwardRef<HTMLElement, LandingSectionProps>(({ onStart, 
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.35, delay: 0.05, ease: "easeOut" }}
               className="w-full"
             >
               <img
@@ -87,7 +87,7 @@ const LandingSection = forwardRef<HTMLElement, LandingSectionProps>(({ onStart, 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.35 }}
               >
                 <h1 className="text-[2.25rem] sm:text-[2.5rem] lg:text-6xl font-display font-bold text-foreground leading-[1.08] mb-5 sm:mb-4">
                   <span className="sm:hidden">Lose weight<br />without giving up<br />the foods you love</span>

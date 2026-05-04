@@ -45,9 +45,9 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
         }
         return prev + 1;
       });
-    }, 100);
+    }, 40);
 
-    const popup1Timer = setTimeout(() => setPopupIndex(0), 3000);
+    const popup1Timer = setTimeout(() => setPopupIndex(0), 1500);
 
     return () => {
       clearInterval(progressInterval);
@@ -60,7 +60,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
 
     const firstAnswered = analysisQuestions.length > 0 && popupAnswers[analysisQuestions[0]?.id];
     if (firstAnswered && popupIndex === 0) {
-      const timer = setTimeout(() => setPopupIndex(1), 3000);
+      const timer = setTimeout(() => setPopupIndex(1), 1500);
       return () => clearTimeout(timer);
     }
   }, [isAnalyzing, popupIndex, popupAnswers]);
@@ -69,7 +69,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
     if (!isAnalyzing) return;
 
     if (analysisProgress >= 100 && Object.keys(popupAnswers).length >= analysisQuestions.length) {
-      const timer = setTimeout(() => onAnalysisComplete?.(), 600);
+      const timer = setTimeout(() => onAnalysisComplete?.(), 300);
       return () => clearTimeout(timer);
     }
   }, [isAnalyzing, analysisProgress, popupAnswers, onAnalysisComplete]);
@@ -242,7 +242,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="w-full max-w-lg text-center">
 
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-olive-muted text-primary font-body text-sm font-medium mb-6">

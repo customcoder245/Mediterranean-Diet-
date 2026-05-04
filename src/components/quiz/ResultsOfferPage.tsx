@@ -52,7 +52,7 @@ const ConfettiParticle = ({ delay, x, color }: {delay: number;x: number;color: s
     x: [0, (Math.random() - 0.5) * 100],
     scale: [1, 1, 0.5]
   }}
-  transition={{ duration: 2.5 + Math.random(), delay, ease: "easeOut" }} />;
+  transition={{ duration: 1.5 + Math.random(), delay, ease: "easeOut" }} />;
 
 
 
@@ -80,7 +80,7 @@ const MacroRing = ({ label, value, color }: {label: string;value: number;color: 
       <div className="relative w-20 h-20">
         <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
           <circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" className="stroke-muted" />
-          <motion.circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" stroke={color} strokeLinecap="round" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 1, delay: 0.3, ease: "easeOut" }} />
+          <motion.circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" stroke={color} strokeLinecap="round" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }} />
         </svg>
         <span className="absolute inset-0 flex items-center justify-center text-base font-display font-bold text-primary-foreground">{value}%</span>
       </div>
@@ -350,8 +350,8 @@ const ResultsOfferPage = ({ results, answers, userName, userEmail }: ResultsOffe
       setSocialProof({ name: person.name, location: person.location, time });
       setTimeout(() => setSocialProof(null), 4000);
     };
-    const initialDelay = setTimeout(showNotification, 10000);
-    const interval = setInterval(showNotification, 12000 + Math.random() * 8000);
+    const initialDelay = setTimeout(showNotification, 4000);
+    const interval = setInterval(showNotification, 6000 + Math.random() * 4000);
     return () => {clearTimeout(initialDelay);clearInterval(interval);};
   }, []);
 
@@ -359,7 +359,7 @@ const ResultsOfferPage = ({ results, answers, userName, userEmail }: ResultsOffe
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.25 }
   };
 
   /* Computed data */
