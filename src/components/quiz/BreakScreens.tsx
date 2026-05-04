@@ -6,7 +6,7 @@ const CountUp = ({ to, duration = 0.7, delay = 0, decimals = 0 }: { to: number; 
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (v) => v.toFixed(decimals));
   React.useEffect(() => {
-    const controls = animate(mv, to, { duration, delay, ease: [0.22, 1, 0.36, 1] });
+    const controls = animate(mv, to, { duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] });
     return controls.stop;
   }, [to, duration, delay, mv]);
   return <motion.span>{rounded}</motion.span>;
@@ -76,8 +76,9 @@ const BreakMillionWomen = ({ onContinue, answers }: Omit<BreakScreenProps, "brea
   const isMale = (answers?.sex as string || answers?.gender as string) === "Male";
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto text-center"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">
@@ -150,8 +151,9 @@ const BreakWhatIsGlp1 = ({ onContinue, answers }: Omit<BreakScreenProps, "breakT
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="bg-card rounded-xl border border-border shadow-card p-6">
@@ -172,7 +174,7 @@ const BreakWhatIsGlp1 = ({ onContinue, answers }: Omit<BreakScreenProps, "breakT
               key={benefit}
               initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.05, duration: 0.2 }}
+              transition={{ delay: i * 0.03, duration: 0.15 }}
               className="flex items-center gap-3"
             >
               <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
@@ -204,8 +206,9 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto text-center px-6"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
@@ -221,7 +224,7 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
             key={item.label}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 + i * 0.08, duration: 0.3 }}
+            transition={{ delay: 0.05 + i * 0.04, duration: 0.2 }}
             className="flex flex-col items-center gap-2"
           >
             <div className="w-14 h-14 rounded-full bg-muted/60 flex items-center justify-center text-2xl">
@@ -236,7 +239,7 @@ const BreakBehaviouralProfile = ({ onContinue }: Omit<BreakScreenProps, "breakTy
         onClick={onContinue}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.2 }}
         className="w-full py-4 rounded-xl bg-gradient-hero text-primary-foreground font-body font-semibold text-lg shadow-medium hover:shadow-glow transition-all"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
@@ -261,8 +264,9 @@ const BreakBeforeAfter = ({ onContinue, answers }: Omit<BreakScreenProps, "break
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto text-center"
     >
       <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
@@ -312,8 +316,9 @@ const BreakBeforeAfter = ({ onContinue, answers }: Omit<BreakScreenProps, "break
 const BreakDesignedNaturally = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "answers">) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="bg-card rounded-xl border border-border shadow-card p-6">
@@ -360,8 +365,9 @@ const BreakComparisonGraph = ({ onContinue }: Omit<BreakScreenProps, "breakType"
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="text-center mb-6">
@@ -490,7 +496,7 @@ const BMIGauge = ({ bmi }: { bmi: number }) => {
             cx: dotPositions.map(p => p.x),
             cy: dotPositions.map(p => p.y),
           }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           r="7"
           fill="white"
           stroke="hsl(var(--foreground))"
@@ -523,8 +529,9 @@ const BreakBMI = ({ answers, onContinue }: Omit<BreakScreenProps, "breakType">) 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto"
     >
       {/* HEADER */}
@@ -661,8 +668,9 @@ const BreakProgress = ({ answers, onContinue }: Omit<BreakScreenProps, "breakTyp
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto"
     >
       <div className="text-center mb-6">
@@ -704,7 +712,7 @@ const BreakProgress = ({ answers, onContinue }: Omit<BreakScreenProps, "breakTyp
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
 
           {points.map((pt, i) => (
@@ -718,7 +726,7 @@ const BreakProgress = ({ answers, onContinue }: Omit<BreakScreenProps, "breakTyp
                 strokeWidth="3"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ delay: 0.3 + i * 0.25, type: "spring" }}
+                transition={{ delay: 0.15 + i * 0.15, type: "spring" }}
               />
               <text x={pt.x} y={pt.y - 14} textAnchor="middle" className="text-[11px] font-bold" fill="currentColor">
                 {pt.label} {unit}
@@ -748,8 +756,9 @@ const BreakTrustedStudy = ({ onContinue, answers }: Omit<BreakScreenProps, "brea
   const isMale = (answers?.sex as string || answers?.gender as string) === "Male";
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
       className="w-full max-w-lg mx-auto text-center px-6"
     >
       <img src={trustedWomen} alt="People who trust Mediterranean Diet" className="w-full max-w-md mx-auto mb-6 rounded-2xl" loading="lazy" decoding="async" />
@@ -808,7 +817,7 @@ const DecoCheck = () => (
 const BreakShapingPlan = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "answers">) => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6 max-w-lg mx-auto">
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}>
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.4 }}>
         <DecoLeaf />
       </motion.div>
       <h2 className="text-2xl font-bold text-foreground mb-3">We're starting to shape your plan</h2>
@@ -824,7 +833,7 @@ const BreakShapingPlan = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "
 const BreakTailorEating = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "answers">) => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6 max-w-lg mx-auto">
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}>
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.4 }}>
         <DecoPlate />
       </motion.div>
       <h2 className="text-2xl font-bold text-foreground mb-3">Now we'll tailor this to how you like to eat</h2>
@@ -841,9 +850,9 @@ const BreakBuildPlan = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "an
   const [animStage, setAnimStage] = React.useState(0);
 
   React.useEffect(() => {
-    const t1 = setTimeout(() => setAnimStage(1), 400);   // Restrictive
-    const t2 = setTimeout(() => setAnimStage(2), 1200);  // GLP-1
-    const t3 = setTimeout(() => setAnimStage(3), 2000);  // Mediterranean
+    const t1 = setTimeout(() => setAnimStage(1), 200);   // Restrictive
+    const t2 = setTimeout(() => setAnimStage(2), 600);  // GLP-1
+    const t3 = setTimeout(() => setAnimStage(3), 1000);  // Mediterranean
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -904,7 +913,7 @@ const BreakBuildPlan = ({ onContinue }: Omit<BreakScreenProps, "breakType" | "an
         <svg viewBox="0 0 500 210" className="w-full" preserveAspectRatio="xMidYMid meet">
           <defs>
             <style>{`
-              .graph-line { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease-out; }
+              .graph-line { fill: none; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease-out; }
             `}</style>
           </defs>
 
@@ -1045,7 +1054,7 @@ const BreakTrustedHands = ({ answers, onContinue }: Omit<BreakScreenProps, "brea
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.4 }}
+        transition={{ delay: 0.1, duration: 0.3 }}
         className="bg-card rounded-xl border border-border shadow-card overflow-hidden mb-4"
       >
         {/* Bar Chart Comparison */}
@@ -1078,7 +1087,7 @@ const BreakTrustedHands = ({ answers, onContinue }: Omit<BreakScreenProps, "brea
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: 56 }}
-                  transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                  transition={{ delay: 0.15, duration: 0.4, ease: "easeOut" }}
                   className="w-24 rounded-t-md flex items-center justify-center"
                   style={{ backgroundColor: "hsl(var(--muted))" }}
                 >
@@ -1093,7 +1102,7 @@ const BreakTrustedHands = ({ answers, onContinue }: Omit<BreakScreenProps, "brea
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: 140 }}
-                  transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
+                  transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
                   className="w-24 rounded-t-md flex items-center justify-center"
                   style={{ backgroundColor: "hsl(var(--primary))" }}
                 >
@@ -1151,7 +1160,7 @@ const BreakTrustedHands = ({ answers, onContinue }: Omit<BreakScreenProps, "brea
         onClick={onContinue}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.0 }}
+        transition={{ delay: 0.6 }}
         className="w-full py-4 rounded-xl bg-gradient-hero text-primary-foreground font-body font-semibold text-lg shadow-medium hover:shadow-glow transition-all"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
@@ -1262,7 +1271,7 @@ const BreakHealthSnapshot = ({ answers, onContinue }: Omit<BreakScreenProps, "br
             key={m.title}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + i * 0.15 }}
+            transition={{ delay: 0.1 + i * 0.1, duration: 0.2 }}
             className="bg-white rounded-2xl border border-border/50 p-5 text-left shadow-sm"
           >
             <div className="flex items-center gap-2 mb-3">
@@ -1277,13 +1286,13 @@ const BreakHealthSnapshot = ({ answers, onContinue }: Omit<BreakScreenProps, "br
                   className={`absolute left-0 top-0 h-full rounded-full ${barColor(m.highlight)}`}
                   initial={{ width: "0%" }}
                   animate={{ width: `${m.position}%` }}
-                  transition={{ delay: 0.5 + i * 0.25, duration: 0.8, ease: "easeOut" }}
+                  transition={{ delay: 0.3 + i * 0.15, duration: 0.5, ease: "easeOut" }}
                 />
                 <motion.div
                   className="absolute top-1/2 w-3.5 h-3.5 bg-foreground rounded-full border-2 border-white shadow"
                   initial={{ left: "0%", x: "-50%", y: "-50%" }}
                   animate={{ left: `${m.position}%` }}
-                  transition={{ delay: 0.5 + i * 0.25, duration: 0.8, ease: "easeOut" }}
+                  transition={{ delay: 0.3 + i * 0.15, duration: 0.5, ease: "easeOut" }}
                   style={{ transform: "translate(-50%, -50%)" }}
                 />
               </div>
@@ -1348,7 +1357,7 @@ const BreakFoodPreferences = ({ onContinue }: Omit<BreakScreenProps, "breakType"
             key={food.label}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 + i * 0.1, duration: 0.35 }}
+            transition={{ delay: 0.15 + i * 0.06, duration: 0.25 }}
             className="bg-card rounded-xl border border-border/50 p-4 flex flex-col items-center gap-2 shadow-sm"
           >
             <span className="text-3xl">{food.emoji}</span>
@@ -1361,7 +1370,7 @@ const BreakFoodPreferences = ({ onContinue }: Omit<BreakScreenProps, "breakType"
         onClick={onContinue}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
+        transition={{ delay: 0.45 }}
         className="w-full py-4 rounded-xl bg-gradient-hero text-primary-foreground font-body font-semibold text-lg shadow-medium hover:shadow-glow transition-all"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
@@ -1378,9 +1387,9 @@ const BreakAnalysingInputs = ({ onContinue }: Omit<BreakScreenProps, "breakType"
   const [autoAdvanced, setAutoAdvanced] = React.useState(false);
 
   const items = [
-    { label: "Meal structure", delay: 0.3 },
-    { label: "Energy balance", delay: 0.7 },
-    { label: "Preferences", delay: 1.1 },
+    { label: "Meal structure", delay: 0.2 },
+    { label: "Energy balance", delay: 0.45 },
+    { label: "Preferences", delay: 0.7 },
   ];
 
   React.useEffect(() => {
@@ -1388,7 +1397,7 @@ const BreakAnalysingInputs = ({ onContinue }: Omit<BreakScreenProps, "breakType"
     const advance = setTimeout(() => {
       setAutoAdvanced(true);
       onContinue();
-    }, 1800);
+    }, 1100);
     return () => { clearTimeout(timer); clearTimeout(advance); };
   }, [onContinue]);
 
@@ -1415,7 +1424,7 @@ const BreakAnalysingInputs = ({ onContinue }: Omit<BreakScreenProps, "breakType"
             strokeDasharray={213.6}
             initial={{ strokeDashoffset: 213.6 }}
             animate={{ strokeDashoffset: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           />
         </svg>
       </div>
@@ -1433,7 +1442,7 @@ const BreakAnalysingInputs = ({ onContinue }: Omit<BreakScreenProps, "breakType"
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: item.delay + 0.3, duration: 0.2 }}
+              transition={{ delay: item.delay + 0.15, duration: 0.15 }}
             >
               <CheckCircle className="w-4 h-4 text-green-500" />
             </motion.div>
@@ -1473,7 +1482,7 @@ const BreakFinalDetails = ({ onContinue }: Omit<BreakScreenProps, "breakType" | 
               key={item.label}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 + i * 0.15, duration: 0.3 }}
+              transition={{ delay: 0.15 + i * 0.1, duration: 0.2 }}
               className="flex items-center gap-3"
             >
               {item.done ? (
@@ -1589,9 +1598,9 @@ const BreakPersonalProfile = ({ onContinue, answers }: Omit<BreakScreenProps, "b
             className="absolute -top-1 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-body font-bold shadow-medium whitespace-nowrap"
             initial={{ left: "0%", x: "-50%", opacity: 0 }}
             animate={{ left: `${bmiPct}%`, x: "-50%", opacity: 1 }}
-            transition={{ left: { duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.3 }, opacity: { duration: 0.3, delay: 0.3 } }}
+            transition={{ left: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }, opacity: { duration: 0.2, delay: 0.15 } }}
           >
-            You – <CountUp to={bmiRounded} duration={1.4} delay={0.3} decimals={1} />
+            You – <CountUp to={bmiRounded} duration={0.8} delay={0.15} decimals={1} />
             <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-primary" />
           </motion.div>
           <div
@@ -1755,14 +1764,14 @@ const BreakProjectionInline = ({ onContinue, answers }: Omit<BreakScreenProps, "
           <motion.path
             d={pathD} fill="none" stroke="url(#lineGradInline)" strokeWidth="3" strokeLinecap="round"
             initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
           />
           {pts.map((p, i) => (
             <g key={i}>
               <motion.circle
                 cx={p.x} cy={p.y} r={i === 3 ? 7 : 5} fill={colors[i]}
                 initial={{ scale: 0 }} animate={{ scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.2, duration: 0.3 }}
+                transition={{ delay: 0.25 + i * 0.1, duration: 0.2 }}
               />
               {i < 3 && (
                 <text x={p.x} y={p.y - 12} textAnchor="middle" className="text-[11px] font-semibold" fill="hsl(var(--foreground))">
@@ -1889,9 +1898,9 @@ const BreakMediterraneanStabilises = ({ onContinue }: Omit<BreakScreenProps, "br
   const [animStage, setAnimStage] = React.useState(0);
 
   React.useEffect(() => {
-    const t1 = setTimeout(() => setAnimStage(1), 400);   // Restrictive
-    const t2 = setTimeout(() => setAnimStage(2), 1200);  // GLP-1
-    const t3 = setTimeout(() => setAnimStage(3), 2000);  // Mediterranean
+    const t1 = setTimeout(() => setAnimStage(1), 200);   // Restrictive
+    const t2 = setTimeout(() => setAnimStage(2), 600);  // GLP-1
+    const t3 = setTimeout(() => setAnimStage(3), 1000);  // Mediterranean
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -1939,7 +1948,7 @@ const BreakMediterraneanStabilises = ({ onContinue }: Omit<BreakScreenProps, "br
         <svg viewBox="0 0 500 210" className="w-full" preserveAspectRatio="xMidYMid meet">
           <defs>
             <style>{`
-              .med-stab-line { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1.2s ease-out; }
+              .med-stab-line { fill: none; stroke-linecap: round; transition: stroke-dashoffset 0.7s ease-out; }
             `}</style>
           </defs>
 
@@ -2201,7 +2210,7 @@ const BreakBuildingPlanTransition = ({ onContinue, answers }: Omit<BreakScreenPr
                       key={m.name}
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.25 + i * 0.12 }}
+                      transition={{ delay: 0.12 + i * 0.08 }}
                       className="bg-white rounded-xl p-1.5 flex items-center gap-2 shadow-sm flex-1 min-h-0"
                     >
                       <img
@@ -2223,7 +2232,7 @@ const BreakBuildingPlanTransition = ({ onContinue, answers }: Omit<BreakScreenPr
                             className="h-full bg-gradient-hero rounded-full"
                             initial={{ width: 0 }}
                             animate={{ width: `${60 + (m.kcal % 30)}%` }}
-                            transition={{ delay: 0.4 + i * 0.12, duration: 0.6 }}
+                            transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
                           />
                         </div>
                       </div>
@@ -2336,7 +2345,7 @@ const BreakWeightLossBlockers = ({ onContinue, answers }: Omit<BreakScreenProps,
             key={b.name}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 + i * 0.1 }}
+            transition={{ delay: 0.05 + i * 0.06 }}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-sm font-body font-semibold text-foreground">{b.name}</span>
@@ -2348,7 +2357,7 @@ const BreakWeightLossBlockers = ({ onContinue, answers }: Omit<BreakScreenProps,
                 style={{ backgroundColor: b.color }}
                 initial={{ width: 0 }}
                 animate={{ width: `${b.pct}%` }}
-                transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.06, ease: "easeOut" }}
               />
             </div>
           </motion.div>

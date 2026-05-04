@@ -30,8 +30,8 @@ interface QuizFlowProps {
 
 const QuizFlow = ({ quizState, onAnswer, onBack, onComplete, liveCount }: QuizFlowProps) => {
   const isMobile = useIsMobile();
-  const slideDistance = isMobile ? 12 : 24;
-  const slideDuration = isMobile ? 0.12 : 0.18;
+  const slideDistance = isMobile ? 8 : 16;
+  const slideDuration = isMobile ? 0.08 : 0.12;
   const hoverScale = isMobile ? undefined : { scale: 1.02 };
   const hoverScaleSm = isMobile ? undefined : { scale: 1.01 };
   const hoverScaleLg = isMobile ? undefined : { scale: 1.05 };

@@ -80,7 +80,7 @@ const MacroRing = ({ label, value, color }: {label: string;value: number;color: 
       <div className="relative w-20 h-20">
         <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
           <circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" className="stroke-muted" />
-          <motion.circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" stroke={color} strokeLinecap="round" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }} />
+          <motion.circle cx="40" cy="40" r="36" fill="none" strokeWidth="6" stroke={color} strokeLinecap="round" strokeDasharray={circumference} initial={{ strokeDashoffset: circumference }} animate={{ strokeDashoffset: offset }} transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }} />
         </svg>
         <span className="absolute inset-0 flex items-center justify-center text-base font-display font-bold text-primary-foreground">{value}%</span>
       </div>
@@ -359,7 +359,7 @@ const ResultsOfferPage = ({ results, answers, userName, userEmail }: ResultsOffe
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.25 }
+    transition: { duration: 0.2 }
   };
 
   /* Computed data */

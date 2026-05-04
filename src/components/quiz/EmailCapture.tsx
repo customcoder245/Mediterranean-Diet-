@@ -45,9 +45,9 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
         }
         return prev + 1;
       });
-    }, 40);
+    }, 25);
 
-    const popup1Timer = setTimeout(() => setPopupIndex(0), 1500);
+    const popup1Timer = setTimeout(() => setPopupIndex(0), 800);
 
     return () => {
       clearInterval(progressInterval);
@@ -60,7 +60,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
 
     const firstAnswered = analysisQuestions.length > 0 && popupAnswers[analysisQuestions[0]?.id];
     if (firstAnswered && popupIndex === 0) {
-      const timer = setTimeout(() => setPopupIndex(1), 1500);
+      const timer = setTimeout(() => setPopupIndex(1), 800);
       return () => clearTimeout(timer);
     }
   }, [isAnalyzing, popupIndex, popupAnswers]);
@@ -69,7 +69,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
     if (!isAnalyzing) return;
 
     if (analysisProgress >= 100 && Object.keys(popupAnswers).length >= analysisQuestions.length) {
-      const timer = setTimeout(() => onAnalysisComplete?.(), 300);
+      const timer = setTimeout(() => onAnalysisComplete?.(), 150);
       return () => clearTimeout(timer);
     }
   }, [isAnalyzing, analysisProgress, popupAnswers, onAnalysisComplete]);
@@ -115,7 +115,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center max-w-md w-full">
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
             className="w-16 h-16 mx-auto mb-8 rounded-full border-4 border-muted border-t-primary" />
 
           <h1 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
@@ -127,7 +127,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
               className="h-full bg-gradient-hero rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: `${analysisProgress}%` }}
-              transition={{ duration: 0.3 }} />
+              transition={{ duration: 0.2 }} />
 
           </div>
 
@@ -142,7 +142,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
                   key={step}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: isActive || isComplete ? 1 : 0.3, x: 0 }}
-                  transition={{ delay: i * 0.3, duration: 0.4 }}
+                  transition={{ delay: i * 0.15, duration: 0.25 }}
                   className="flex items-center gap-3 text-muted-foreground font-body">
 
                   {isComplete ?
@@ -169,7 +169,7 @@ const EmailCapture = ({ mode = "capture", onSubmit, onAnalysisComplete }: EmailC
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
+            transition={{ delay: 0.8 }}
             className="mt-8 bg-card rounded-xl p-4 border border-border">
 
             <div className="flex items-start gap-3">
